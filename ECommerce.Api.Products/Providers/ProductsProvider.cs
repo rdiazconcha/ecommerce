@@ -28,9 +28,10 @@ namespace ECommerce.Api.Products.Providers
         {
             if (!dbContext.Products.Any())
             {
-                dbContext.Products.Add(new Db.Product() { Id = 1, Name = "Keyboard", Price = 15, Inventory = 50 });
-                dbContext.Products.Add(new Db.Product() { Id = 2, Name = "Mouse", Price = 10, Inventory = 100 });
-                dbContext.Products.Add(new Db.Product() { Id = 3, Name = "Monitor", Price = 100, Inventory = 20 });
+                dbContext.Products.Add(new Db.Product() { Id = 1, Name = "Keyboard", Price = 20, Inventory = 100 });
+                dbContext.Products.Add(new Db.Product() { Id = 2, Name = "Mouse", Price = 5, Inventory = 200 });
+                dbContext.Products.Add(new Db.Product() { Id = 3, Name = "Monitor", Price = 150, Inventory = 1000 });
+                dbContext.Products.Add(new Db.Product() { Id = 4, Name = "CPU", Price = 200, Inventory = 2000 });
                 dbContext.SaveChanges();
             }
         }
