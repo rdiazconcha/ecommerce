@@ -14,6 +14,7 @@ namespace ECommerce.Api.Customers.Controllers
         {
             this.customersProvider = customersProvider;
         }
+        
         [HttpGet]
         public async Task<IActionResult> GetCustomersAsync()
         {
@@ -21,6 +22,17 @@ namespace ECommerce.Api.Customers.Controllers
             if (result.IsSuccess)
             {
                 return Ok(result.Customers);
+            }
+            return NotFound();
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetCustomersAsync(int id)
+        {
+            var result = await customersProvider.GetCustomerAsync(id);
+            if (result.IsSuccess)
+            {
+                return Ok(result.Customer);
             }
             return NotFound();
         }

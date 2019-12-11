@@ -28,9 +28,9 @@ namespace ECommerce.Api.Customers.Providers
         {
             if (!dbContext.Customers.Any())
             {
-                dbContext.Customers.Add(new Customer() { Id = 1, Name = "Jessica Smith", Address = "20 Elm St." });
-                dbContext.Customers.Add(new Customer() { Id = 2, Name = "John Smith", Address = "30 Main St." });
-                dbContext.Customers.Add(new Customer() { Id = 3, Name = "William Johnson", Address = "100 10th St." });
+                dbContext.Customers.Add(new Db.Customer() { Id = 1, Name = "Jessica Smith", Address = "20 Elm St." });
+                dbContext.Customers.Add(new Db.Customer() { Id = 2, Name = "John Smith", Address = "30 Main St." });
+                dbContext.Customers.Add(new Db.Customer() { Id = 3, Name = "William Johnson", Address = "100 10th St." });
                 dbContext.SaveChanges();
             }
         }
@@ -45,6 +45,27 @@ namespace ECommerce.Api.Customers.Providers
                 {
                     logger?.LogInformation($"{customers.Count} customer(s) found");
                     var result = mapper.Map<IEnumerable<Db.Customer>, IEnumerable<Models.Customer>>(customers);
+                    return (true, result, null);
+                }
+                return (false, null, "Not found");
+            }
+            catch (Exception ex)
+            {
+                logger?.LogError(ex.ToString());
+                return (false, null, ex.Message);
+            }
+        }
+
+        public async Task<(bool IsSuccess, Models.Customer Customer, string ErrorMessage)> GetCustomerAsync(int id)
+        {
+            try
+            {
+                logger?.LogInformation("Querying customers");
+                var customer = await dbContext.Customers.FirstOrDefaultAsync(c => c.Id == id);
+                if (customer != null)
+                {
+                    logger?.LogInformation("Customer found");
+                    var result = mapper.Map<Db.Customer, Models.Customer>(customer);
                     return (true, result, null);
                 }
                 return (false, null, "Not found");
