@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerce.Api.Products", "ECommerce.Api.Products\ECommerce.Api.Products.csproj", "{CD14D144-3CEC-4574-8B38-EEA96AA95320}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECommerce.Api.Products", "ECommerce.Api.Products\ECommerce.Api.Products.csproj", "{CD14D144-3CEC-4574-8B38-EEA96AA95320}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerce.Api.Customers", "ECommerce.Api.Customers\ECommerce.Api.Customers.csproj", "{1D618DC8-1023-4925-A18E-1E49FF89E791}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,9 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{CD14D144-3CEC-4574-8B38-EEA96AA95320}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -30,5 +29,23 @@ Global
 		{CD14D144-3CEC-4574-8B38-EEA96AA95320}.Release|x64.Build.0 = Release|Any CPU
 		{CD14D144-3CEC-4574-8B38-EEA96AA95320}.Release|x86.ActiveCfg = Release|Any CPU
 		{CD14D144-3CEC-4574-8B38-EEA96AA95320}.Release|x86.Build.0 = Release|Any CPU
+		{1D618DC8-1023-4925-A18E-1E49FF89E791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D618DC8-1023-4925-A18E-1E49FF89E791}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D618DC8-1023-4925-A18E-1E49FF89E791}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1D618DC8-1023-4925-A18E-1E49FF89E791}.Debug|x64.Build.0 = Debug|Any CPU
+		{1D618DC8-1023-4925-A18E-1E49FF89E791}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1D618DC8-1023-4925-A18E-1E49FF89E791}.Debug|x86.Build.0 = Debug|Any CPU
+		{1D618DC8-1023-4925-A18E-1E49FF89E791}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D618DC8-1023-4925-A18E-1E49FF89E791}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D618DC8-1023-4925-A18E-1E49FF89E791}.Release|x64.ActiveCfg = Release|Any CPU
+		{1D618DC8-1023-4925-A18E-1E49FF89E791}.Release|x64.Build.0 = Release|Any CPU
+		{1D618DC8-1023-4925-A18E-1E49FF89E791}.Release|x86.ActiveCfg = Release|Any CPU
+		{1D618DC8-1023-4925-A18E-1E49FF89E791}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A2238212-9AFB-4C63-9C7F-B47330311365}
 	EndGlobalSection
 EndGlobal
