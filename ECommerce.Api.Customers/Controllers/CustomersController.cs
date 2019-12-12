@@ -27,7 +27,7 @@ namespace ECommerce.Api.Customers.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetCustomersAsync(int id)
+        public async Task<IActionResult> GetCustomerAsync(int id)
         {
             var result = await customersProvider.GetCustomerAsync(id);
             if (result.IsSuccess)
