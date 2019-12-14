@@ -27,10 +27,10 @@ services:
     image: azurepipelinestest.azurecr.io/ecommerceapisearch:latest
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-    ports:
-      - "6004:80"
-    environment:
       - Services__Products=http://ecommerce.api.products
       - Services__Customers=http://ecommerce.api.customers
       - Services__Orders=http://ecommerce.api.orders
+    ports:
+      - "6004:80"
+      
 
