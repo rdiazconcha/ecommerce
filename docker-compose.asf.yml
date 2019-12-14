@@ -1,0 +1,36 @@
+version: '3.4'
+
+services:
+  ecommerce.api.products:
+    image: azurepipelinestest.azurecr.io/ecommerceapiproducts:latest
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "6001:80"
+
+  ecommerce.api.orders:
+    image: azurepipelinestest.azurecr.io/ecommerceapiorders:latest
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "6003:80"
+
+  ecommerce.api.customers:
+    image: azurepipelinestest.azurecr.io/ecommerceapicustomers:latest
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "6002:80"
+
+
+  ecommerce.api.search:
+    image: azurepipelinestest.azurecr.io/ecommerceapisearch:latest
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "6004:80"
+    environment:
+      - Services__Products=http://ecommerce.api.products
+      - Services__Customers=http://ecommerce.api.customers
+      - Services__Orders=http://ecommerce.api.orders
+

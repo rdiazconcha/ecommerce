@@ -9,6 +9,7 @@
     <DockerServiceName>ecommerce.api.products</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="docker-compose.asf.yml" />
     <None Include="docker-compose.override.yml">
       <DependentUpon>docker-compose.yml</DependentUpon>
     </None>
