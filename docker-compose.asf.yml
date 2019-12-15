@@ -1,36 +1,36 @@
 version: '3.4'
 
 services:
-  ecommerce.api.products:
+  products:
     image: rdiazconcha/ecommerceapiproducts:latest
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
-      - "6001:80"
+      - "80/http"
 
-  ecommerce.api.orders:
+  orders:
     image: rdiazconcha/ecommerceapiorders:latest
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
-      - "6003:80"
+      - "80/http"
 
-  ecommerce.api.customers:
+  customers:
     image: rdiazconcha/ecommerceapicustomers:latest
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
-      - "6002:80"
+      - "80/http"
 
-
-  ecommerce.api.search:
+  search:
     image: rdiazconcha/ecommerceapisearch:latest
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - Services__Products=http://ecommerce.api.products
-      - Services__Customers=http://ecommerce.api.customers
-      - Services__Orders=http://ecommerce.api.orders
+      - Services__Products=http://10.0.0.4:19081/lil/products/
+      - Services__Customers=http://10.0.0.4:19081/lil/customers/
+      - Services__Orders=http://10.0.0.4:19081/lil/orders/
+      - Logging__LogLevel__Microsoft=Information
     ports:
-      - "6004:80"
+      - "6004:80/http"
       
 
