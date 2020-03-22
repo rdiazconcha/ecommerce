@@ -1,3 +1,4 @@
 # Azure Microservices with .NET Core for Developers
 ## LinkedIn Learning training course
-### ECommerce application
+
+https://www.linkedin.com/learning/azure-microservices-with-dot-net-core-for-developers/making-sense-of-microservices-architecture-in-a-dot-net-core-and-azure-ecosystem
