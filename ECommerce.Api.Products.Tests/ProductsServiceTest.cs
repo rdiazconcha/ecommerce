@@ -12,6 +12,12 @@ namespace ECommerce.Api.Products.Tests
 {
     public class ProductsServiceTest
     {
+
+        [Fact]
+        public void Test(){
+            Assert.True(1==1);
+        }
+
         [Fact]
         public async Task GetProductsReturnsAllProducts()
         {
