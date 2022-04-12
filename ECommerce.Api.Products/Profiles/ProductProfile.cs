@@ -1,10 +1,9 @@
-﻿namespace ECommerce.Api.Products.Profiles
+﻿namespace ECommerce.Api.Products.Profiles;
+
+public class ProductProfile : AutoMapper.Profile
 {
-    public class ProductProfile : AutoMapper.Profile
+    public ProductProfile()
     {
-        public ProductProfile()
-        {
-            CreateMap<Db.Product, Models.Product>();
-        }
+        CreateMap<Db.Product, Models.Product>();
     }
 }

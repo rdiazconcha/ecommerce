@@ -1,9 +1,8 @@
 ﻿using System.Threading.Tasks;
 
-namespace ECommerce.Api.Search.Interfaces
+namespace ECommerce.Api.Search.Interfaces;
+
+public interface ISearchService
 {
-    public interface ISearchService
-    {
-        Task<(bool IsSuccess, dynamic SearchResults)> SearchAsync(int customerId);
-    }
+    Task<(bool IsSuccess, dynamic SearchResults)> SearchAsync(int customerId);
 }

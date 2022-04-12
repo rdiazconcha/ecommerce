@@ -1,9 +1,8 @@
 ﻿using System.Threading.Tasks;
 
-namespace ECommerce.Api.Search.Interfaces
+namespace ECommerce.Api.Search.Interfaces;
+
+public interface ICustomersService
 {
-    public interface ICustomersService
-    {
-        Task<(bool IsSuccess, dynamic Customer, string ErrorMessage)> GetCustomerAsync(int id);
-    }
+    Task<(bool IsSuccess, dynamic Customer, string ErrorMessage)> GetCustomerAsync(int id);
 }

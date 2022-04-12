@@ -1,10 +1,9 @@
-﻿namespace ECommerce.Api.Customers.Profiles
+﻿namespace ECommerce.Api.Customers.Profiles;
+
+public class CustomerProfile : AutoMapper.Profile
 {
-    public class CustomerProfile : AutoMapper.Profile
+    public CustomerProfile()
     {
-        public CustomerProfile()
-        {
-            CreateMap<Db.Customer, Models.Customer>();
-        }
+        CreateMap<Db.Customer, Models.Customer>();
     }
 }

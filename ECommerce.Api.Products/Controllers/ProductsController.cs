@@ -2,39 +2,38 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace ECommerce.Api.Products.Controllers
+namespace ECommerce.Api.Products.Controllers;
+
+[ApiController]
+[Route("api/products")]
+public class ProductsController : ControllerBase
 {
-    [ApiController]
-    [Route("api/products")]
-    public class ProductsController : ControllerBase
+    private readonly IProductsProvider productsProvider;
+
+    public ProductsController(IProductsProvider productsProvider)
     {
-        private readonly IProductsProvider productsProvider;
+        this.productsProvider = productsProvider;
+    }
 
-        public ProductsController(IProductsProvider productsProvider)
+    [HttpGet]
+    public async Task<IActionResult> GetProductsAsync()
+    {
+        var all = await productsProvider.GetProductsAsync();
+        if (all.IsSuccess)
         {
-            this.productsProvider = productsProvider;
+            return Ok(all.Products);
         }
+        return NotFound(all.ErrorMessage);
+    }
 
-        [HttpGet]
-        public async Task<IActionResult> GetProductsAsync()
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetProductAsync(int id)
+    {
+        var result = await productsProvider.GetProductAsync(id);
+        if (result.IsSuccess)
         {
-            var all = await productsProvider.GetProductsAsync();
-            if (all.IsSuccess)
-            {
-                return Ok(all.Products);
-            }
-            return NotFound(all.ErrorMessage);
+            return Ok(result.Product);
         }
-
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetProductAsync(int id)
-        {
-            var result = await productsProvider.GetProductAsync(id);
-            if (result.IsSuccess)
-            {
-                return Ok(result.Product);
-            }
-            return NotFound(result.ErrorMessage);
-        }
+        return NotFound(result.ErrorMessage);
     }
 }

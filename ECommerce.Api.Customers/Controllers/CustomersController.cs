@@ -2,39 +2,38 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace ECommerce.Api.Customers.Controllers
+namespace ECommerce.Api.Customers.Controllers;
+
+[ApiController]
+[Route("api/customers")]
+public class CustomersController : ControllerBase
 {
-    [ApiController]
-    [Route("api/customers")]
-    public class CustomersController : ControllerBase
+    private readonly ICustomersProvider customersProvider;
+
+    public CustomersController(ICustomersProvider customersProvider)
     {
-        private readonly ICustomersProvider customersProvider;
+        this.customersProvider = customersProvider;
+    }
+    
+    [HttpGet]
+    public async Task<IActionResult> GetCustomersAsync()
+    {
+        var result = await customersProvider.GetCustomersAsync();
+        if (result.IsSuccess)
+        {
+            return Ok(result.Customers);
+        }
+        return NotFound();
+    }
 
-        public CustomersController(ICustomersProvider customersProvider)
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetCustomerAsync(int id)
+    {
+        var result = await customersProvider.GetCustomerAsync(id);
+        if (result.IsSuccess)
         {
-            this.customersProvider = customersProvider;
+            return Ok(result.Customer);
         }
-        
-        [HttpGet]
-        public async Task<IActionResult> GetCustomersAsync()
-        {
-            var result = await customersProvider.GetCustomersAsync();
-            if (result.IsSuccess)
-            {
-                return Ok(result.Customers);
-            }
-            return NotFound();
-        }
-
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetCustomerAsync(int id)
-        {
-            var result = await customersProvider.GetCustomerAsync(id);
-            if (result.IsSuccess)
-            {
-                return Ok(result.Customer);
-            }
-            return NotFound();
-        }
+        return NotFound();
     }
 }

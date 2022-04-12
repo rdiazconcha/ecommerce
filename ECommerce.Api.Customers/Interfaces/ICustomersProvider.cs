@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace ECommerce.Api.Customers.Interfaces
+namespace ECommerce.Api.Customers.Interfaces;
+
+public interface ICustomersProvider
 {
-    public interface ICustomersProvider
-    {
-        Task<(bool IsSuccess, IEnumerable<Customer> Customers, string ErrorMessage)> GetCustomersAsync();
-        Task<(bool IsSuccess, Customer Customer, string ErrorMessage)> GetCustomerAsync(int id);
-    }
+    Task<(bool IsSuccess, IEnumerable<Customer> Customers, string ErrorMessage)> GetCustomersAsync();
+    Task<(bool IsSuccess, Customer Customer, string ErrorMessage)> GetCustomerAsync(int id);
 }

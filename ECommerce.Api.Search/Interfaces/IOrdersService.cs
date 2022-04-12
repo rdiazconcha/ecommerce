@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace ECommerce.Api.Search.Interfaces
+namespace ECommerce.Api.Search.Interfaces;
+
+public interface IOrdersService
 {
-    public interface IOrdersService
-    {
-        Task<(bool IsSuccess, IEnumerable<Order> Orders, string ErrorMessage)> GetOrdersAsync(int customerId);
-    }
+    Task<(bool IsSuccess, IEnumerable<Order> Orders, string ErrorMessage)> GetOrdersAsync(int customerId);
 }
